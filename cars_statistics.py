@@ -10,10 +10,10 @@ cars_list = open_file('cars.csv')
 
 # user input, sorting options
 def sorting_menu():
-	query=input('On which parameters would you like to sort cars?\n1) Price\n2) Alphabetic\n3) Make Year \n4) City \n')
+	query=input('On which parameters would you like to sort cars?\n1) Price\n2) Alphabetical\n3) Make Year \n4) City \n')
 	while query not in ('1','2','3','4'):
 		print('There is no that choice.')
-		query=input('On which parameters would you like to sort cars?\n1) Price\n2) Alphabetic\n3) Make Year \n4) City \n')
+		query=input('On which parameters would you like to sort cars?\n1) Price\n2) Alphabetical\n3) Make Year \n4) City \n')
 	sorting(query)
 
 # sorting by given parameters
@@ -24,7 +24,7 @@ def sorting(query):
 		for car in price_sort:
 			print_car(car)
 	elif query == '2':
-		print('Sorting alphabeticly')
+		print('Sorting alphabetically')
 		model_sort = sorted(cars_list, key=lambda i: i['model'])
 		for car in model_sort:
 			print_car(car)
@@ -42,6 +42,7 @@ def sorting(query):
 # print sorting results
 def print_car(car):
 	desc=car['opis']
+	# This is done because there is short description of each car on website, and usually first thing in here is make year
 	if desc[0] == '2' and '1':
 		make_year = (f'{desc[0]}{desc[1]}{desc[2]}{desc[3]}')
 	else:
